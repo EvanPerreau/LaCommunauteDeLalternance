@@ -119,7 +119,7 @@ Avant de soumettre une Pull Request, assurez-vous que :
 
 ## Ressources pour les développeurs
 
-- [Documentation de l'API NeoForge](https://neoforge.net/)
+- [Documentation de l'API NeoForge](https://docs.neoforged.net/)
 - [Tutoriels de développement de mods](https://www.youtube.com/playlist?list=PLKGarocXCE1G6CQOoiYdMVx-E1d9F_itF)
 - [Documentation de l'API du mod](../api/index.md)
 
