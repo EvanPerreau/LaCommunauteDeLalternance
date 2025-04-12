@@ -1,3 +1,28 @@
 {
-    "java.compile.nullAnalysis.mode": "automatic"
+    "java.compile.nullAnalysis.mode": "automatic",
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "java.format.settings.url": "${workspaceFolder}/.vscode/java-formatter.xml",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": "explicit"
+    },
+    "java.debug.settings.hotCodeReplace": "auto",
+    "java.test.config": {
+        "workingDirectory": "${workspaceFolder}"
+    },
+    "java.completion.importOrder": [
+        "java",
+        "javax",
+        "com",
+        "org",
+        "fr.evanperreau"
+    ],
+    "files.exclude": {
+        "**/.git": true,
+        "**/.gradle": false,
+        "**/build/classes": true,
+        "**/build/tmp": true
+    },
+    "gradle.nestedProjects": true,
+    "gradle.autoRefresh": true
 }

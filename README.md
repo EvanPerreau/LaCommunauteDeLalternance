@@ -111,19 +111,16 @@ Si vous ne savez pas par où commencer, voici quelques idées:
 
 ## Environnement de développement
 
-### Configuration
-1. Après avoir cloné le projet, importez-le dans votre IDE
-2. Exécutez la tâche de configuration appropriée selon votre système:
-   ```
-   ./gradlew genIntellijRuns  # Pour IntelliJ IDEA
-   ./gradlew genEclipseRuns   # Pour Eclipse
-   ./gradlew genVSCodeRuns    # Pour VS Code
-   ```
-
 ### Structure du projet
 - `src/main/java` : Code source Java
 - `src/main/resources` : Ressources (textures, sons, fichiers de configuration)
 - `src/test` : Tests unitaires
+
+### Refresh dependencies
+
+```
+./gradlew --refresh-dependencies
+```
 
 ### Run le client de dev
 
