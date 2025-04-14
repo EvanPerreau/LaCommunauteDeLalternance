@@ -37,6 +37,10 @@ Avant de commencer à développer, assurez-vous d'avoir :
   - Organisation des ressources (à détailler)
 - `src/test` : Tests unitaires
 
+## Guides spécifiques
+
+- [Guide d'ajout de blocs et d'items](ajout-blocs-items.md)
+
 ## Principes de développement
 
 ### Principes SOLID
