@@ -41,6 +41,8 @@ Avant de commencer à développer, assurez-vous d'avoir :
 
 - [Guide d'ajout de blocs et d'items](ajout-blocs-items.md)
 - [Guide des Creative Tabs](creative-tabs.md)
+- [Guide des Sons](sons.md)
+- [Guide des Effets](effets.md)
 
 ## Principes de développement
 
