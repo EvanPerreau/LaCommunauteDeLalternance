@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Supplier;
 
-import fr.evanperreau.lacommunautedelalternance.ModItems;
+import fr.evanperreau.lacommunautedelalternance.registry.ModItems;
 
 import net.minecraft.world.item.Item;
 import net.neoforged.neoforge.registries.DeferredItem;
@@ -66,7 +66,7 @@ public abstract class BaseItem {
     /**
      * Retourne l'instance d'un type spécifique de BaseItem.
      * 
-     * @param <T> Le type de BaseItem
+     * @param <T>   Le type de BaseItem
      * @param clazz La classe du type de BaseItem
      * @return L'instance du type spécifié
      */
@@ -78,7 +78,7 @@ public abstract class BaseItem {
         }
         return (T) instance;
     }
-    
+
     /**
      * Méthode à utiliser dans les classes concrètes pour obtenir leur instance.
      * 

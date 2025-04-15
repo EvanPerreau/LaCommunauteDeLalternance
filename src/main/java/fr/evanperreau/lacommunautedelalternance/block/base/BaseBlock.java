@@ -1,9 +1,11 @@
 package fr.evanperreau.lacommunautedelalternance.block.base;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.function.Supplier;
 
-import fr.evanperreau.lacommunautedelalternance.ModBlock;
-import fr.evanperreau.lacommunautedelalternance.ModItems;
+import fr.evanperreau.lacommunautedelalternance.registry.ModBlock;
+import fr.evanperreau.lacommunautedelalternance.registry.ModItems;
 
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.block.Block;
@@ -14,7 +16,8 @@ import net.neoforged.neoforge.registries.DeferredBlock;
  * Permet d'enregistrer des blocks dans le registre du jeu.
  */
 public abstract class BaseBlock {
-    private static BaseBlock INSTANCE;
+    // Map pour stocker les instances par type de classe
+    private static final Map<Class<? extends BaseBlock>, BaseBlock> INSTANCES = new HashMap<>();
 
     private DeferredBlock<Block> deferredBlock;
 
@@ -37,7 +40,8 @@ public abstract class BaseBlock {
      * Cette méthode doit être appelée pendant la phase d'initialisation du mod.
      */
     public void register() {
-        INSTANCE = this;
+        // Stocke l'instance dans la Map en utilisant sa classe comme clé
+        INSTANCES.put(this.getClass(), this);
         this.deferredBlock = registerDeferredBlock();
         registerBlockItem();
     }
@@ -52,15 +56,28 @@ public abstract class BaseBlock {
     }
 
     /**
-     * Retourne l'instance de BaseBlock.
+     * Retourne l'instance d'un type spécifique de BaseBlock.
      * 
-     * @return L'instance de BaseBlock
+     * @param <T> Le type de BaseBlock
+     * @param clazz La classe du type de BaseBlock
+     * @return L'instance du type spécifié
+     */
+    @SuppressWarnings("unchecked")
+    public static <T extends BaseBlock> T getInstance(Class<T> clazz) {
+        BaseBlock instance = INSTANCES.get(clazz);
+        if (instance == null) {
+            throw new RuntimeException("Instance of " + clazz.getSimpleName() + " not initialized");
+        }
+        return (T) instance;
+    }
+    
+    /**
+     * Méthode à utiliser dans les classes concrètes pour obtenir leur instance.
+     * 
+     * @return L'instance de la classe concrète
      */
     public static BaseBlock getInstance() {
-        if (INSTANCE == null) {
-            throw new RuntimeException("BaseBlock instance not initialized");
-        }
-        return INSTANCE;
+        throw new UnsupportedOperationException("Cette méthode doit être surchargée dans les classes concrètes");
     }
 
     /**

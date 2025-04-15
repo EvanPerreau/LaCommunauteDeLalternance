@@ -2,10 +2,10 @@ package fr.evanperreau.lacommunautedelalternance.item.food;
 
 import java.util.function.Supplier;
 
+import fr.evanperreau.lacommunautedelalternance.effect.BigPoopEffect;
 import fr.evanperreau.lacommunautedelalternance.item.base.BaseItem;
 
 import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 
@@ -22,13 +22,7 @@ public class CrousBurgerKebab extends BaseItem {
      * appropriées.
      */
     public CrousBurgerKebab() {
-        ITEM = () -> new Item(
-                new Item.Properties()
-                        .food(new FoodProperties.Builder()
-                                .nutrition(10)
-                                .saturationModifier(0.6f)
-                                .effect(() -> new MobEffectInstance(MobEffects.WEAKNESS, 100, 0), 1f)
-                                .build()));
+        ITEM = () -> new CrousBurgerKebabItem();
     }
 
     /**
@@ -48,5 +42,18 @@ public class CrousBurgerKebab extends BaseItem {
     @Override
     public Supplier<Item> getItem() {
         return ITEM;
+    }
+
+    private static class CrousBurgerKebabItem extends Item {
+        public CrousBurgerKebabItem() {
+            super(new Item.Properties()
+                    .food(new FoodProperties.Builder()
+                            .nutrition(10)
+                            .saturationModifier(0.6f)
+                            .effect(() -> new MobEffectInstance(BigPoopEffect.getInstance().getDeferredEffect(),
+                                    MobEffectInstance.INFINITE_DURATION,
+                                    0), 1f)
+                            .build()));
+        }
     }
 }
