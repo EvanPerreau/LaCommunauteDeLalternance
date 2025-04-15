@@ -40,6 +40,7 @@ Avant de commencer à développer, assurez-vous d'avoir :
 ## Guides spécifiques
 
 - [Guide d'ajout de blocs et d'items](ajout-blocs-items.md)
+- [Guide des Creative Tabs](creative-tabs.md)
 
 ## Principes de développement
 

@@ -5,7 +5,6 @@ import com.mojang.logging.LogUtils;
 import org.slf4j.Logger;
 
 import fr.evanperreau.lacommunautedelalternance.block.BismuthBlock;
-import fr.evanperreau.lacommunautedelalternance.item.food.CrousBurgerKebab;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.CreativeModeTab;
@@ -64,7 +63,6 @@ public class LaCommunautedeLalternance {
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
         if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
             // Utilisation de l'objet enregistré via le fournisseur
-            event.accept(CrousBurgerKebab.getInstance().getDeferredItem());
             event.accept(BismuthBlock.getInstance().getDeferredBlock());
         }
     }
